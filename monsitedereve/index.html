@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Mon site de rêve</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffe6f0;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            color: #ff4da6;
+            font-size: 48px;
+            margin-top: 30px;
+        }
+
+        h2 {
+            color: #cc0066;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        /* MENU */
+        ul.menu {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            width: 300px;
+            background-color: #ff99cc;
+            border-radius: 12px;
+        }
+
+        ul.menu li a {
+            display: block;
+            padding: 12px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        ul.menu li a:hover {
+            background-color: #ff66b2;
+        }
+
+        ul.sous-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: none;
+            background-color: #ffb3d9;
+        }
+
+        /* CONTENU */
+        .contenu {
+            max-width: 900px;
+            margin: 30px auto;
+            background-color: white;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        .section {
+            display: none;
+            margin-bottom: 30px;
+        }
+
+        .section img {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 12px;
+            margin: 10px 0;
+        }
+
+        iframe {
+            margin: 15px 0;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Mon site de rêve</h1>
+    <h2>La danse</h2>
+
+    <!-- MENU PRINCIPAL -->
+    <ul class="menu">
+        <li>
+            <a onclick="toggleMenu('menuDanses')">Styles de danse ▼</a>
+            <ul class="sous-menu" id="menuDanses">
+                <li><a onclick="afficherSection('classique')">Danse classique</a></li>
+                <li><a onclick="afficherSection('hiphop')">Hip-hop</a></li>
+                <li><a onclick="afficherSection('contemporaine')">Danse contemporaine</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a onclick="toggleMenu('menuEcole')">Mon école de danse ▼</a>
+            <ul class="sous-menu" id="menuEcole">
+                <li><a onclick="afficherSection('dda')">DDA Dance School</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a onclick="toggleMenu('menuMusique')">Mes musiques ▼</a>
+            <ul class="sous-menu" id="menuMusique">
+                <li><a onclick="afficherSection('playlist')">Playlist française</a></li>
+            </ul>
+        </li>
+    </ul>
+
+    <!-- CONTENU -->
+    <div class="contenu">
+
+        <!-- DANSE CLASSIQUE -->
+        <div class="section" id="classique">
+            <h3>Danse classique</h3>
+            <p>
+                La danse classique est une danse élégante et technique,
+                basée sur la grâce et la précision.
+            </p>
+            <img src="https://images.unsplash.com/photo-1547153760-18fc86324498" alt="Danse classique">
+        </div>
+
+        <!-- HIP-HOP -->
+        <div class="section" id="hiphop">
+            <h3>Hip-hop</h3>
+            <p>
+                Le hip-hop est une danse urbaine pleine d’énergie
+                qui permet de s’exprimer librement.
+            </p>
+            <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad" alt="Hip-hop">
+        </div>
+
+        <!-- CONTEMPORAINE -->
+        <div class="section" id="contemporaine">
+            <h3>Danse contemporaine</h3>
+            <p>
+                La danse contemporaine exprime les émotions
+                avec des mouvements fluides et libres.
+            </p>
+            <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e" alt="Danse contemporaine">
+        </div>
+
+        <!-- ECOLE DE DANSE -->
+        <div class="section" id="dda">
+            <h3>DDA Dance School – Tourcoing</h3>
+            <p>
+                DDA Dance School est une école de danse accueillante
+                où la passion, le partage et la confiance en soi sont au cœur des cours.
+            </p>
+
+            <!-- IMAGES RÉELLES À AJOUTER -->
+            <img src="dda1.jpg" alt="Cours de danse DDA">
+            <img src="dda2.jpg" alt="Élèves DDA">
+            <img src="dda3.jpg" alt="Salle de danse DDA">
+        </div>
+
+        <!-- PLAYLIST MUSIQUE -->
+        <div class="section" id="playlist">
+            <h3>🎶 Ma playlist française 🎶</h3>
+            <p>
+                Voici une sélection de musiques françaises parfaites
+                pour danser, s’entraîner ou se motiver 💃
+            </p>
+
+            <iframe width="300" height="170" src="https://www.youtube.com/embed/oiKj0Z_Xnjc" allowfullscreen></iframe>
+            <p>Indila – Dernière danse</p>
+
+            <iframe width="300" height="170" src="https://www.youtube.com/embed/K5KAc5CoCuk" allowfullscreen></iframe>
+            <p>Angèle – Balance ton quoi</p>
+
+            <iframe width="300" height="170" src="https://www.youtube.com/embed/oiKj0Z_Xnjc" allowfullscreen></iframe>
+            <p>Stromae – Alors on danse</p>
+
+            <iframe width="300" height="170" src="https://www.youtube.com/embed/hWn1ZDeh8p4" allowfullscreen></iframe>
+            <p>Kendji Girac – Andalouse</p>
+        </div>
+
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        function toggleMenu(id) {
+            const menu = document.getElementById(id);
+            menu.style.display = menu.style.display === "block" ? "none" : "block";
+        }
+
+        function afficherSection(id) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.style.display = "none";
+            });
+
+            document.getElementById(id).style.display = "block";
+
+            document.getElementById("menuDanses").style.display = "none";
+            document.getElementById("menuEcole").style.display = "none";
+            document.getElementById("menuMusique").style.display = "none";
+        }
+    </script>
+	<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Mon site de rêve</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffe6f0;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            color: #ff4da6;
+            font-size: 48px;
+            margin-top: 30px;
+        }
+
+        h2 {
+            color: #cc0066;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        ul.menu {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            width: 300px;
+            background-color: #ff99cc;
+            border-radius: 12px;
+        }
+
+        ul.menu li a {
+            display: block;
+            padding: 12px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        ul.menu li a:hover {
+            background-color: #ff66b2;
+        }
+
+        ul.sous-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: none;
+            background-color: #ffb3d9;
+        }
+
+        .contenu {
+            max-width: 900px;
+            margin: 30px auto;
+            background-color: white;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        .section {
+            display: none;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #ffb3d9;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        footer ul li {
+            margin: 10px 0;
+        }
+
+        footer a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #cc0066;
+        }
+    </style>
+</head>
+<body>
+
+
+
+<!-- FOOTER AVEC LIENS -->
+<footer>
+    <ul>
+        <li><a href="voyages.html">🌍 Les voyages</a></li>
+        <li><a href="musique.html">🎵 La musique</a></li>
+    </ul>
+</footer>
+
+<script>
+    function toggleMenu(id) {
+        const menu = document.getElementById(id);
+        menu.style.display = menu.style.display === "block" ? "none" : "block";
+    }
+
+    function afficherSection(id) {
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.display = "none";
+        });
+        document.getElementById(id).style.display = "block";
+        document.getElementById("menuDanses").style.display = "none";
+    }
+</script>
+
+</body>
+</html>
+
+</body>
+</html>
